@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 12:19:27 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 12:52:10 by jijeon           ###   ########.fr       */
+/*   Updated: 2020/12/23 14:33:50 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s, char const *set)
 	while (*s && ft_strchr(set, *s) != 0)
 		s++;
 	len = ft_strlen(s);
-	while (len && s1[len - 1] && ft_strchr(set, s1[len - 1]) != 0)
+	while (len && s[len - 1] && ft_strchr(set, s[len - 1]) != 0)
 		len--;
 	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);

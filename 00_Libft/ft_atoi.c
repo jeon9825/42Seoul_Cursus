@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 11:43:27 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/22 11:56:23 by jijeon           ###   ########.fr       */
+/*   Updated: 2020/12/23 15:07:45 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ int			ft_atoi(const char *str)
 	sign = 1;
 	while (ft_isspace(*str))
 		++str;
-	while (*str == '+' || *str == '-')
+	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
 			sign *= -1;
 		++str;
 	}
-	while ('0' <= *str && *str <= '9')
+	while (ft_isdigit(*str))
 	{
 		num *= 10;
-		num += (sign * (*str - '0'));
+		num += *str - '0';
 		++str;
 	}
-	return (num);
+	return (num * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 12:50:22 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/22 13:24:42 by jijeon           ###   ########.fr       */
+/*   Updated: 2020/12/23 16:07:43 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static size_t	ft_get_count(char const *str, char c)
 	size_t	count;
 
 	count = 0;
+	while (*str && *str == c)
+		++str;
 	while (*str)
 	{
-		if (*str != c)
-		{
-			++count;
-			while (*str && *str != c)
-				++str;
-		}
-		++str;
+		count++;
+		while (*str && *str != c)
+			++str;
+		while (*str && *str == c)
+			++str;
 	}
 	return (count);
 }
@@ -71,14 +71,14 @@ char			**ft_split(char const *s, char c)
 {
 	char	**ret;
 	size_t	count;
-	size_t	idx;
+	size_t	i;
 	size_t	word;
 
 	count = ft_get_count(s, c);
 	if (!(ret = (char **)malloc(sizeof(char *) * count + 1)))
 		return (NULL);
-	idx = 0;
-	while (*s && idx < count)
+	i = 0;
+	while (*s && i < count)
 	{
 		while (*s && *s == c)
 			++s;
@@ -89,8 +89,8 @@ char			**ft_split(char const *s, char c)
 			return (NULL);
 		}
 		s += word;
-		idx++;
+		i++;
 	}
-	ret[count] = '\0';
+	ret[count] = NULL;
 	return (ret);
 }

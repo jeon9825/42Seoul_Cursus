@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 11:24:05 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/22 11:33:21 by jijeon           ###   ########.fr       */
+/*   Updated: 2020/12/23 14:31:22 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		if (u1 != u2)
 			return (u1 - u2);
 		if (u1 == '\0')
-			return (NULL);
+			return (0);
 		--n;
 	}
-	return (NULL);
+	return (0);
 }

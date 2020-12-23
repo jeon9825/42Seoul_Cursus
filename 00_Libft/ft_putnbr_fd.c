@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 13:22:42 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 13:27:01 by jijeon           ###   ########.fr       */
+/*   Updated: 2020/12/23 14:43:52 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 
 	if (n < 0)
 	{
-		ft_putchar('-', fd);
+		ft_putchar_fd('-', fd);
 		nbr = -n;
 	}
 	else

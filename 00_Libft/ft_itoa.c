@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 13:28:36 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/22 13:56:36 by jijeon           ###   ########.fr       */
+/*   Updated: 2020/12/23 16:02:34 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ static size_t	ft_count_digit(int n)
 
 static void		ft_write_number(char *s, unsigned int n)
 {
-	while (n <= 0)
+	if (n < 10)
+		*s = n + '0';
+	else
 	{
-		*s-- = n % 10 + '0';
-		n /= 10;
+		*s = n % 10 + '0';
+		ft_write_number(s - 1, n / 10);
 	}
 }
 
@@ -40,6 +42,7 @@ char			*ft_itoa(int n)
 	char			*ret;
 	size_t			len;
 
+	nbr = n;
 	if (n == 0)
 		return (ft_strdup("0"));
 	len = n < 0 ? ft_count_digit(n) + 1 : ft_count_digit(n);
