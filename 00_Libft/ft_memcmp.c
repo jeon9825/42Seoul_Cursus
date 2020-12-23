@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 12:19:27 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 12:52:10 by jijeon           ###   ########.fr       */
+/*   Created: 2020/12/23 12:59:02 by jijeon            #+#    #+#             */
+/*   Updated: 2020/12/23 13:01:12 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s, char const *set)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*ret;
-	size_t	len;
+	const unsigned char *s1ptr;
+	const unsigned char *s2ptr;
 
-	while (*s && ft_strchr(set, *s) != 0)
-		s++;
-	len = ft_strlen(s);
-	while (len && s1[len - 1] && ft_strchr(set, s1[len - 1]) != 0)
-		len--;
-	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	ft_memcpy(ret, s, len);
-	ret[len] = '\0';
-	return (ret);
+	s1ptr = (const unsigned char *)s1;
+	s2ptr = (const unsigned char *)s2;
+	while (n-- > 0)
+	{
+		if (*s1ptr != *s2ptr)
+			return (*s1ptr - *s2ptr);
+		s1ptr;
+		s2ptr;
+	}
+	return (0);
 }

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 12:19:27 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 12:52:10 by jijeon           ###   ########.fr       */
+/*   Created: 2020/12/23 13:01:40 by jijeon            #+#    #+#             */
+/*   Updated: 2020/12/23 13:04:02 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s, char const *set)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	*ret;
-	size_t	len;
+	void	*ret;
 
-	while (*s && ft_strchr(set, *s) != 0)
-		s++;
-	len = ft_strlen(s);
-	while (len && s1[len - 1] && ft_strchr(set, s1[len - 1]) != 0)
-		len--;
-	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
+	if (!(ret = malloc(count * size)))
 		return (NULL);
-	ft_memcpy(ret, s, len);
-	ret[len] = '\0';
+	ft_bzero(ret, count * size);
 	return (ret);
 }

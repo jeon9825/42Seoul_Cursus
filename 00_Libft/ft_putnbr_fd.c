@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 12:19:27 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 12:52:10 by jijeon           ###   ########.fr       */
+/*   Created: 2020/12/23 13:22:42 by jijeon            #+#    #+#             */
+/*   Updated: 2020/12/23 13:27:01 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s, char const *set)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*ret;
-	size_t	len;
+	unsigned int	nbr;
 
-	while (*s && ft_strchr(set, *s) != 0)
-		s++;
-	len = ft_strlen(s);
-	while (len && s1[len - 1] && ft_strchr(set, s1[len - 1]) != 0)
-		len--;
-	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	ft_memcpy(ret, s, len);
-	ret[len] = '\0';
-	return (ret);
+	if (n < 0)
+	{
+		ft_putchar('-', fd);
+		nbr = -n;
+	}
+	else
+	{
+		nbr = n;
+	}
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd(nbr % 10 + '0', fd);
 }

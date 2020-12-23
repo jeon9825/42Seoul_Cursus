@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 12:19:27 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 12:52:10 by jijeon           ###   ########.fr       */
+/*   Created: 2020/12/23 13:07:38 by jijeon            #+#    #+#             */
+/*   Updated: 2020/12/23 13:17:59 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*ret;
 	size_t	len;
+	size_t	i;
 
-	while (*s && ft_strchr(set, *s) != 0)
-		s++;
 	len = ft_strlen(s);
-	while (len && s1[len - 1] && ft_strchr(set, s1[len - 1]) != 0)
-		len--;
 	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
-	ft_memcpy(ret, s, len);
+	i = 0;
+	while (i < len)
+	{
+		ret[i] = f(i, s[i]);
+		i++;
+	}
 	ret[len] = '\0';
 	return (ret);
 }

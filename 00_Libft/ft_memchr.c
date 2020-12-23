@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 12:19:27 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 12:52:10 by jijeon           ###   ########.fr       */
+/*   Created: 2020/12/23 12:54:39 by jijeon            #+#    #+#             */
+/*   Updated: 2020/12/23 12:57:45 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s, char const *set)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*ret;
-	size_t	len;
+	const unsigned char	*ptr;
 
-	while (*s && ft_strchr(set, *s) != 0)
-		s++;
-	len = ft_strlen(s);
-	while (len && s1[len - 1] && ft_strchr(set, s1[len - 1]) != 0)
-		len--;
-	if (!(ret = (char *)malloc(sizeof(char) * len + 1)))
-		return (NULL);
-	ft_memcpy(ret, s, len);
-	ret[len] = '\0';
-	return (ret);
+	ptr = (const unsigned char *)s;
+	while (n-- > 0)
+	{
+		if (*ptr == (unsigned char)c)
+			return (void *)ptr;
+		ptr++;
+	}
+	return (NULL);
 }
