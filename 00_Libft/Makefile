@@ -6,14 +6,14 @@
 #    By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/23 14:18:39 by jijeon            #+#    #+#              #
-#    Updated: 2020/12/29 21:03:40 by jijeon           ###   ########.fr        #
+#    Updated: 2020/12/29 22:42:22 by jijeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 AR = ar
-ARFLAGS = crs
+ARFLAGS = -crs
 
 CC = gcc
 CFLAG = -Wall -Wextra -Werror
@@ -95,4 +95,8 @@ re : fclean all
 
 $(NAME) : $(OBJS) $(OBJ_BONUS)
 	$(AR) $(ARFLAGS) $@ $^
+
+bonus : $(OBJ_BONUS)
+	$(AR) $(ARFLAGS) $(NAME) $^
+
 .PHONY: all clean fclean re
