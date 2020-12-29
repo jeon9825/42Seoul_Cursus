@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 13:47:43 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/21 13:52:50 by jijeon           ###   ########.fr       */
+/*   Updated: 2020/12/29 21:05:45 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ char	*ft_strdup(const char *str)
 	int		len;
 	char	*new_str;
 
-	len = 0;
-	while (str[len])
-		len++;
+	len = ft_strlen(str);
 	new_str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!(new_str))
 		return (NULL);
