@@ -6,7 +6,7 @@
 #    By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/23 14:18:39 by jijeon            #+#    #+#              #
-#    Updated: 2020/12/29 22:42:22 by jijeon           ###   ########.fr        #
+#    Updated: 2021/01/04 23:28:47 by jijeon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,4 +99,4 @@ $(NAME) : $(OBJS) $(OBJ_BONUS)
 bonus : $(OBJ_BONUS)
 	$(AR) $(ARFLAGS) $(NAME) $^
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
