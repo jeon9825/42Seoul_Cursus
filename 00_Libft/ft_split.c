@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 12:50:22 by jijeon            #+#    #+#             */
-/*   Updated: 2020/12/23 16:07:43 by jijeon           ###   ########.fr       */
+/*   Updated: 2021/01/04 21:48:31 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char			**ft_split(char const *s, char c)
 	size_t	word;
 
 	count = ft_get_count(s, c);
-	if (!(ret = (char **)malloc(sizeof(char *) * count + 1)))
+	if (!(ret = (char **)malloc(sizeof(char *) * (count + 1))))
 		return (NULL);
 	i = 0;
 	while (*s && i < count)
