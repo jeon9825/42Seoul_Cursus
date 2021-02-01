@@ -6,7 +6,7 @@
 /*   By: jijeon <jijeon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 15:49:50 by jijeon            #+#    #+#             */
-/*   Updated: 2021/01/22 16:12:21 by jijeon           ###   ########.fr       */
+/*   Updated: 2021/02/01 20:38:19 by jijeon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFET_SIZE 1
-# endif
 
 # ifndef OPEN_MAX
 #  define OPEN_MAX	10240
